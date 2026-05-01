@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WORLD KIT 2026 — Maillots Officiels Coupe du Monde FIFA</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-inner">
+    <img id="preloadLogoImg" src="" alt="FIFA 2026" class="preload-logo">
+    <div class="preload-bar"><div class="preload-fill"></div></div>
+    <div class="preload-text">CHARGEMENT EN COURS</div>
+  </div>
+</div>
+
+<!-- CART SIDEBAR -->
+<div id="cart-sidebar" class="cart-sidebar">
+  <div class="cart-header">
+    <h3>MON PANIER <span id="cart-count-badge">0</span></h3>
+    <button onclick="toggleCart()" class="cart-close">✕</button>
+  </div>
+  <div id="cart-items" class="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total">TOTAL : <span id="cart-total-price">0,00 €</span></div>
+    <button class="btn-checkout" onclick="showCheckout()">RÉSERVER MA COMMANDE</button>
+    <div class="cart-secure">
+      <svg class="cart-icon-svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      Paiement 100% sécurisé · SSL
+    </div>
+  </div>
+</div>
+<div id="cart-overlay" onclick="toggleCart()"></div>
+
+<!-- COUNTRY MODAL -->
+<div id="country-modal" class="country-modal">
+  <div class="country-modal-inner">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+<div id="modal-overlay" onclick="closeModal()"></div>
+
+<!-- BONUS MODAL -->
+<div id="bonus-modal" class="bonus-modal">
+  <div class="bonus-modal-inner">
+    <button class="modal-close" onclick="closeBonus()">✕</button>
+    <div id="bonus-content"></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img id="navLogoImg" src="" alt="FIFA 2026">
+      <span>WORLD KIT 2026</span>
+    </div>
+    <div class="nav-links">
+      <a href="#pays">Nations</a>
+      <a href="#produits">Collection</a>
+      <a href="#stars">Collector</a>
+      <a href="#heatmap">Live Map</a>
+      <a href="#avis">Avis</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-promo-tag">−30% OFFRE</div>
+      <button class="cart-btn" onclick="toggleCart()">
+        <svg class="cart-icon-svg" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Panier&nbsp;<span id="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-track">
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>−30% SUR TOUS LES MAILLOTS</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>LIVRAISON 7 JOURS</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>PAIEMENT SÉCURISÉ</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>RETOURS GRATUITS</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>+1000 AVIS CLIENTS</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>BADGE TOP VENDEUR FIFA</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>SUPPORT 7J/7</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>−30% SUR TOUS LES MAILLOTS</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>LIVRAISON 7 JOURS</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>PAIEMENT SÉCURISÉ</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>RETOURS GRATUITS</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>+1000 AVIS CLIENTS</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>BADGE TOP VENDEUR FIFA</span>
+    <span><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>SUPPORT 7J/7</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="stadium-lights">
+      <div class="light l1"></div><div class="light l2"></div>
+      <div class="light l3"></div><div class="light l4"></div>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-dot"></div>
+      Édition Officielle Supporters · FIFA World Cup 2026
+    </div>
+    <!-- CINEMATIC TEXT -->
+    <div class="hero-cinema">
+      <p class="cinema-paragraph">
+        La Coupe du Monde revient, et avec elle des histoires que personne n'oubliera.
+        Pour certains joueurs, ce sera peut-être la dernière occasion de toucher la gloire.
+        Pour d'autres, la première chance d'entrer dans la légende.
+        Des générations se croisent, des nations espèrent, et le monde entier retient son souffle
+        avant ce rendez-vous historique de 2026.
+      </p>
+    </div>
+    <div class="hero-title-block">
+      <div class="hero-title">COUPE DU MONDE<span class="year">2026</span></div>
+      <p class="hero-tagline">Représentez votre nation. Avant la rupture des stocks.</p>
+    </div>
+    <div class="hero-carousel-wrapper">
+      <div class="hero-carousel" id="heroCarousel">
+        <div class="carousel-jersey active"><img id="cj-france" src="" alt="France"><div class="carousel-label">FRANCE</div></div>
+        <div class="carousel-jersey"><img id="cj-bresil" src="" alt="Brésil"><div class="carousel-label">BRÉSIL</div></div>
+        <div class="carousel-jersey"><img id="cj-argentine" src="" alt="Argentine"><div class="carousel-label">ARGENTINE</div></div>
+        <div class="carousel-jersey"><img id="cj-maroc" src="" alt="Maroc"><div class="carousel-label">MAROC</div></div>
+        <div class="carousel-jersey"><img id="cj-espagne" src="" alt="Espagne"><div class="carousel-label">ESPAGNE</div></div>
+        <div class="carousel-jersey"><img id="cj-portugal" src="" alt="Portugal"><div class="carousel-label">PORTUGAL</div></div>
+        <div class="carousel-jersey"><img id="cj-algerie" src="" alt="Algérie"><div class="carousel-label">ALGÉRIE</div></div>
+        <div class="carousel-jersey"><img id="cj-senegal" src="" alt="Sénégal"><div class="carousel-label">SÉNÉGAL</div></div>
+      </div>
+    </div>
+    <div class="countdown-block">
+      <div class="countdown-label">Début du tournoi dans</div>
+      <div class="countdown-timers">
+        <div class="timer-unit"><span id="cd-days">00</span><small>JOURS</small></div>
+        <div class="timer-sep">:</div>
+        <div class="timer-unit"><span id="cd-hours">00</span><small>HEURES</small></div>
+        <div class="timer-sep">:</div>
+        <div class="timer-unit"><span id="cd-mins">00</span><small>MINUTES</small></div>
+        <div class="timer-sep">:</div>
+        <div class="timer-unit"><span id="cd-secs">00</span><small>SECONDES</small></div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#pays" class="btn-primary">Explorer la collection mondiale</a>
+      <a href="#produits" class="btn-secondary">Voir les offres −30%</a>
+    </div>
+  </div>
+  <div class="live-notifs" id="liveNotifs"></div>
+</section>
+
+<!-- STARS TEASER SCROLL -->
+<section class="stars-teaser">
+  <div class="stars-teaser-track" id="teaserTrack"></div>
+
+<!-- VERSUS RIVALITÉS -->
+<section class="versus-section" id="versus">
+  <div class="versus-header">
+    <div class="section-tag" style="border-color:rgba(201,168,76,0.5)">RIVALITÉS MONDIALES · 2026</div>
+    <h2 class="versus-title">Les Duels qui Feront l'Histoire</h2>
+  </div>
+  <div class="versus-container">
+    <!-- DUEL 1: Ronaldo vs Messi -->
+    <div class="versus-duel">
+      <div class="versus-player left-player" id="vp-ronaldo">
+        <div class="vp-img-wrap">
+          <img id="versus-ronaldo" src="" alt="Cristiano Ronaldo">
+          <div class="vp-glow left-glow"></div>
+        </div>
+        <div class="vp-info">
+          <div class="vp-name">RONALDO</div>
+          <div class="vp-nation">🇵🇹 Portugal</div>
+          <div class="vp-number">#7</div>
+        </div>
+      </div>
+      <div class="versus-center">
+        <div class="vs-trophy">
+          <div class="trophy-glow"></div>
+          <svg viewBox="0 0 80 120" fill="none" class="trophy-svg">
+            <path d="M30 8 H50 V55 C50 75 65 85 65 95 H15 C15 85 30 75 30 55 Z" fill="url(#tg1)" stroke="rgba(201,168,76,0.6)" stroke-width="1"/>
+            <path d="M15 95 H65 V102 H15 Z" fill="#B8922E"/>
+            <path d="M25 102 H55 V112 H25 Z" fill="#C9A84C"/>
+            <path d="M20 112 H60 V118 H20 Z" fill="#B8922E"/>
+            <path d="M8 15 C2 15 2 35 15 40" stroke="#C9A84C" stroke-width="3" fill="none"/>
+            <path d="M72 15 C78 15 78 35 65 40" stroke="#C9A84C" stroke-width="3" fill="none"/>
+            <defs>
+              <linearGradient id="tg1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#E8C96A"/>
+                <stop offset="50%" stop-color="#C9A84C"/>
+                <stop offset="100%" stop-color="#8B6520"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="vs-text">VS</div>
+        <div class="vs-lightning">
+          <div class="bolt b1"></div>
+          <div class="bolt b2"></div>
+          <div class="bolt b3"></div>
+        </div>
+        <div class="vs-label">La Grande Finale</div>
+      </div>
+      <div class="versus-player right-player" id="vp-messi">
+        <div class="vp-img-wrap">
+          <img id="versus-messi" src="" alt="Lionel Messi">
+          <div class="vp-glow right-glow"></div>
+        </div>
+        <div class="vp-info">
+          <div class="vp-name">MESSI</div>
+          <div class="vp-nation">🇦🇷 Argentine</div>
+          <div class="vp-number">#10</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DUEL 2: Yamal vs Olise -->
+    <div class="versus-duel versus-duel-2">
+      <div class="versus-player left-player" id="vp-mbappe">
+        <div class="vp-img-wrap">
+          <img id="versus-mbappe" src="" alt="Kylian Mbappé">
+          <div class="vp-glow left-glow blue-glow"></div>
+        </div>
+        <div class="vp-info">
+          <div class="vp-name">MBAPPÉ</div>
+          <div class="vp-nation">🇫🇷 France</div>
+          <div class="vp-number">#10</div>
+        </div>
+      </div>
+      <div class="versus-center">
+        <div class="vs-next-gen">NEXT GEN</div>
+        <div class="vs-text">VS</div>
+        <div class="vs-lightning">
+          <div class="bolt b1"></div>
+          <div class="bolt b2"></div>
+        </div>
+        <div class="vs-label">La Nouvelle Vague</div>
+      </div>
+      <div class="versus-player right-player" id="vp-haaland">
+        <div class="vp-img-wrap">
+          <img id="versus-haaland" src="" alt="Erling Haaland">
+          <div class="vp-glow right-glow orange-glow"></div>
+        </div>
+        <div class="vp-info">
+          <div class="vp-name">HAALAND</div>
+          <div class="vp-nation">🇳🇴 Norvège</div>
+          <div class="vp-number">#9</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STARS ROW: new player images -->
+  <div class="stars-row-showcase">
+    <div class="stars-row-item"><img id="sr-mane" src="" alt="Sadio Mané"><div class="sr-label">MANÉ · 🇸🇳</div></div>
+    <div class="stars-row-item"><img id="sr-neymar" src="" alt="Neymar"><div class="sr-label">NEYMAR · 🇧🇷</div></div>
+    <div class="stars-row-item"><img id="sr-bellingham" src="" alt="Bellingham"><div class="sr-label">BELLINGHAM · 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div></div>
+    <div class="stars-row-item"><img id="sr-musiala" src="" alt="Musiala"><div class="sr-label">MUSIALA · 🇩🇪</div></div>
+    <div class="stars-row-item"><img id="sr-isaak" src="" alt="Isak"><div class="sr-label">ISAK · 🇸🇪</div></div>
+    <div class="stars-row-item"><img id="sr-salah" src="" alt="Salah"><div class="sr-label">SALAH · 🇪🇬</div></div>
+  </div>
+</section>
+
+<!-- HEAT MAP -->
+<section class="heatmap-section" id="heatmap">
+  <div class="section-header reveal">
+    <div class="section-tag">
+      <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="#C8192A"/></svg>
+      EN DIRECT MONDIAL
+    </div>
+    <h2>HEAT MAP MONDIALE</h2>
+    <p>Suivez en temps réel les tendances d'achat par pays.</p>
+  </div>
+  <div class="heatmap-wrapper">
+    <div class="heatmap-map">
+
+      <div class="map-container" id="realMapContainer">
+        <div class="map-tooltip" id="mapTooltip"></div>
+        <div class="real-map-wrap">
+          <img id="realMapImg" src="" alt="World Map" class="real-map-img">
+          <svg class="hotspot-overlay" id="hotspotSvg" viewBox="0 0 1049 699" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <radialGradient id="hg-gold" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C9A84C" stop-opacity="0.9"/><stop offset="60%" stop-color="#C9A84C" stop-opacity="0.4"/><stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/></radialGradient>
+              <radialGradient id="hg-green" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00E676" stop-opacity="0.85"/><stop offset="60%" stop-color="#00E676" stop-opacity="0.3"/><stop offset="100%" stop-color="#00E676" stop-opacity="0"/></radialGradient>
+              <radialGradient id="hg-blue" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#2196F3" stop-opacity="0.8"/><stop offset="60%" stop-color="#2196F3" stop-opacity="0.3"/><stop offset="100%" stop-color="#2196F3" stop-opacity="0"/></radialGradient>
+            </defs>
+            <!-- EUROPE -->
+            <g class="hs-group" data-country="france" data-name="France" data-flag="🇫🇷" data-rank="1"><circle cx="462" cy="238" r="20" fill="url(#hg-gold)" class="hs-glow"/><circle cx="462" cy="238" r="8" fill="#C9A84C" class="hs-dot"/><text x="462" y="233" class="hs-rank">#1</text></g>
+            <g class="hs-group" data-country="algerie" data-name="Algérie" data-flag="🇩🇿" data-rank="6"><circle cx="460" cy="290" r="17" fill="url(#hg-gold)" class="hs-glow"/><circle cx="460" cy="290" r="7" fill="#C9A84C" class="hs-dot"/><text x="460" y="285" class="hs-rank">#6</text></g>
+            <g class="hs-group" data-country="espagne" data-name="Espagne" data-flag="🇪🇸" data-rank="7"><circle cx="432" cy="262" r="14" fill="url(#hg-green)" class="hs-glow"/><circle cx="432" cy="262" r="6" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="portugal" data-name="Portugal" data-flag="🇵🇹"><circle cx="416" cy="265" r="12" fill="url(#hg-green)" class="hs-glow"/><circle cx="416" cy="265" r="5" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="allemagne" data-name="Allemagne" data-flag="🇩🇪"><circle cx="477" cy="222" r="13" fill="url(#hg-green)" class="hs-glow"/><circle cx="477" cy="222" r="5" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="angleterre" data-name="Angleterre" data-flag="🏴󠁧󠁢󠁥󠁮󠁧󠁿"><circle cx="443" cy="210" r="11" fill="url(#hg-green)" class="hs-glow"/><circle cx="443" cy="210" r="5" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="belgique" data-name="Belgique" data-flag="🇧🇪"><circle cx="463" cy="218" r="9" fill="url(#hg-blue)" class="hs-glow"/><circle cx="463" cy="218" r="4" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="pays_bas" data-name="Pays-Bas" data-flag="🇳🇱"><circle cx="468" cy="212" r="9" fill="url(#hg-blue)" class="hs-glow"/><circle cx="468" cy="212" r="4" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="croatie" data-name="Croatie" data-flag="🇭🇷"><circle cx="492" cy="234" r="8" fill="url(#hg-blue)" class="hs-glow"/><circle cx="492" cy="234" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="turquie" data-name="Turquie" data-flag="🇹🇷"><circle cx="530" cy="247" r="10" fill="url(#hg-blue)" class="hs-glow"/><circle cx="530" cy="247" r="4" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="norvege" data-name="Norvège" data-flag="🇳🇴"><circle cx="467" cy="192" r="8" fill="url(#hg-blue)" class="hs-glow"/><circle cx="467" cy="192" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="suede" data-name="Suède" data-flag="🇸🇪"><circle cx="480" cy="190" r="8" fill="url(#hg-blue)" class="hs-glow"/><circle cx="480" cy="190" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="ecosse" data-name="Écosse" data-flag="🏴󠁧󠁢󠁳󠁣󠁴󠁿"><circle cx="437" cy="203" r="7" fill="url(#hg-blue)" class="hs-glow"/><circle cx="437" cy="203" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="autriche" data-name="Autriche" data-flag="🇦🇹"><circle cx="487" cy="225" r="7" fill="url(#hg-blue)" class="hs-glow"/><circle cx="487" cy="225" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="suisse" data-name="Suisse" data-flag="🇨🇭"><circle cx="472" cy="232" r="7" fill="url(#hg-blue)" class="hs-glow"/><circle cx="472" cy="232" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <!-- AFRIQUE -->
+            <g class="hs-group" data-country="maroc" data-name="Maroc" data-flag="🇲🇦" data-rank="4"><circle cx="430" cy="290" r="17" fill="url(#hg-gold)" class="hs-glow"/><circle cx="430" cy="290" r="7" fill="#C9A84C" class="hs-dot"/><text x="430" y="285" class="hs-rank">#4</text></g>
+            <g class="hs-group" data-country="tunisie" data-name="Tunisie" data-flag="🇹🇳"><circle cx="476" cy="272" r="9" fill="url(#hg-green)" class="hs-glow"/><circle cx="476" cy="272" r="4" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="egypte" data-name="Égypte" data-flag="🇪🇬"><circle cx="512" cy="285" r="10" fill="url(#hg-green)" class="hs-glow"/><circle cx="512" cy="285" r="4" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="senegal" data-name="Sénégal" data-flag="🇸🇳"><circle cx="408" cy="338" r="10" fill="url(#hg-green)" class="hs-glow"/><circle cx="408" cy="338" r="4" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="ghana" data-name="Ghana" data-flag="🇬🇭"><circle cx="431" cy="360" r="8" fill="url(#hg-green)" class="hs-glow"/><circle cx="431" cy="360" r="3" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="cote_ivoire" data-name="Côte d'Ivoire" data-flag="🇨🇮"><circle cx="423" cy="368" r="8" fill="url(#hg-green)" class="hs-glow"/><circle cx="423" cy="368" r="3" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="rdc" data-name="RD Congo" data-flag="🇨🇩"><circle cx="497" cy="392" r="8" fill="url(#hg-blue)" class="hs-glow"/><circle cx="497" cy="392" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="afrique_sud" data-name="Afrique du Sud" data-flag="🇿🇦"><circle cx="502" cy="472" r="9" fill="url(#hg-blue)" class="hs-glow"/><circle cx="502" cy="472" r="4" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="cap_vert" data-name="Cap-Vert" data-flag="🇨🇻"><circle cx="390" cy="324" r="6" fill="url(#hg-blue)" class="hs-glow"/><circle cx="390" cy="324" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <!-- AMÉRIQUES -->
+            <g class="hs-group" data-country="etats_unis" data-name="États-Unis" data-flag="🇺🇸" data-rank="5"><circle cx="174" cy="258" r="22" fill="url(#hg-gold)" class="hs-glow"/><circle cx="174" cy="258" r="9" fill="#C9A84C" class="hs-dot"/><text x="174" y="253" class="hs-rank">#5</text></g>
+            <g class="hs-group" data-country="canada" data-name="Canada" data-flag="🇨🇦"><circle cx="165" cy="210" r="13" fill="url(#hg-green)" class="hs-glow"/><circle cx="165" cy="210" r="5" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="mexique" data-name="Mexique" data-flag="🇲🇽"><circle cx="148" cy="305" r="11" fill="url(#hg-green)" class="hs-glow"/><circle cx="148" cy="305" r="5" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="bresil" data-name="Brésil" data-flag="🇧🇷" data-rank="2"><circle cx="268" cy="420" r="20" fill="url(#hg-gold)" class="hs-glow"/><circle cx="268" cy="420" r="8" fill="#C9A84C" class="hs-dot"/><text x="268" y="415" class="hs-rank">#2</text></g>
+            <g class="hs-group" data-country="argentine" data-name="Argentine" data-flag="🇦🇷" data-rank="3"><circle cx="248" cy="508" r="17" fill="url(#hg-gold)" class="hs-glow"/><circle cx="248" cy="508" r="7" fill="#C9A84C" class="hs-dot"/><text x="248" y="503" class="hs-rank">#3</text></g>
+            <g class="hs-group" data-country="colombie" data-name="Colombie" data-flag="🇨🇴"><circle cx="215" cy="372" r="9" fill="url(#hg-green)" class="hs-glow"/><circle cx="215" cy="372" r="4" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="equateur" data-name="Équateur" data-flag="🇪🇨"><circle cx="206" cy="395" r="8" fill="url(#hg-blue)" class="hs-glow"/><circle cx="206" cy="395" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="uruguay" data-name="Uruguay" data-flag="🇺🇾"><circle cx="255" cy="513" r="8" fill="url(#hg-blue)" class="hs-glow"/><circle cx="255" cy="513" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="paraguay" data-name="Paraguay" data-flag="🇵🇾"><circle cx="248" cy="484" r="7" fill="url(#hg-blue)" class="hs-glow"/><circle cx="248" cy="484" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="panama" data-name="Panama" data-flag="🇵🇦"><circle cx="180" cy="338" r="7" fill="url(#hg-blue)" class="hs-glow"/><circle cx="180" cy="338" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="haiti" data-name="Haïti" data-flag="🇭🇹"><circle cx="200" cy="315" r="6" fill="url(#hg-blue)" class="hs-glow"/><circle cx="200" cy="315" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <!-- ASIE -->
+            <g class="hs-group" data-country="arabie_saoudite" data-name="Arabie Saoudite" data-flag="🇸🇦"><circle cx="567" cy="312" r="11" fill="url(#hg-green)" class="hs-glow"/><circle cx="567" cy="312" r="4" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="iran" data-name="Iran" data-flag="🇮🇷"><circle cx="590" cy="278" r="10" fill="url(#hg-green)" class="hs-glow"/><circle cx="590" cy="278" r="4" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="irak" data-name="Irak" data-flag="🇮🇶"><circle cx="563" cy="278" r="8" fill="url(#hg-blue)" class="hs-glow"/><circle cx="563" cy="278" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="qatar" data-name="Qatar" data-flag="🇶🇦"><circle cx="577" cy="307" r="7" fill="url(#hg-blue)" class="hs-glow"/><circle cx="577" cy="307" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="jordanie" data-name="Jordanie" data-flag="🇯🇴"><circle cx="547" cy="287" r="7" fill="url(#hg-blue)" class="hs-glow"/><circle cx="547" cy="287" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="ouzbekistan" data-name="Ouzbékistan" data-flag="🇺🇿"><circle cx="635" cy="248" r="8" fill="url(#hg-blue)" class="hs-glow"/><circle cx="635" cy="248" r="3" fill="#2196F3" class="hs-dot"/></g>
+            <g class="hs-group" data-country="japon" data-name="Japon" data-flag="🇯🇵"><circle cx="806" cy="257" r="10" fill="url(#hg-green)" class="hs-glow"/><circle cx="806" cy="257" r="4" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="coree_sud" data-name="Corée du Sud" data-flag="🇰🇷"><circle cx="792" cy="264" r="9" fill="url(#hg-green)" class="hs-glow"/><circle cx="792" cy="264" r="4" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="australie" data-name="Australie" data-flag="🇦🇺"><circle cx="818" cy="482" r="10" fill="url(#hg-green)" class="hs-glow"/><circle cx="818" cy="482" r="4" fill="#00E676" class="hs-dot"/></g>
+            <g class="hs-group" data-country="nouvelle_zelande" data-name="Nouvelle-Zélande" data-flag="🇳🇿"><circle cx="887" cy="528" r="7" fill="url(#hg-blue)" class="hs-glow"/><circle cx="887" cy="528" r="3" fill="#2196F3" class="hs-dot"/></g>
+          </svg>
+        </div>
+        <div class="map-legend">
+          <div class="legend-item"><span class="legend-dot gold-dot"></span>Top ventes</div>
+          <div class="legend-item"><span class="legend-dot green-dot"></span>Forte demande</div>
+          <div class="legend-item"><span class="legend-dot blue-dot"></span>Actif</div>
+        </div>
+      </div>
+
+      <!-- AIRPORT RANKING -->
+      <div class="heatmap-ranking">
+        <div class="ranking-header">
+          <div class="ranking-title">CLASSEMENT LIVE</div>
+          <div class="ranking-live-badge">
+            <div class="live-dot" style="width:6px;height:6px;border-radius:50%;background:#4CAF50;animation:blink 1s infinite"></div>
+            EN DIRECT
+          </div>
+        </div>
+        <div class="ranking-cols">
+          <span>RK</span><span></span><span>NATION</span><span>SCORE</span><span>TREND</span>
+        </div>
+        <div id="rankingList"></div>
+        <div class="live-bubble">
+          <div class="live-dot"></div>
+          <span id="liveBubbleText">La France vient de dépasser le Sénégal · +18%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTRIES -->
+<section class="countries-section" id="pays">
+  <div class="section-header reveal">
+    <div class="section-tag">48 NATIONS</div>
+    <h2>CHOISISSEZ VOTRE NATION</h2>
+    <p>Cliquez sur un pays pour accéder à ses maillots domicile et extérieur avec les tailles disponibles.</p>
+  </div>
+  <div class="countries-grid" id="countriesGrid"></div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="produits">
+  <div class="section-header reveal">
+    <div class="section-tag">MEILLEURES VENTES</div>
+    <h2>COLLECTION MONDIALE</h2>
+    <p>Qualité officielle · Livraison express · −30% offerts aujourd'hui seulement</p>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- PROMO BUTTON -->
+<section class="promo-btn-section">
+  <div class="promo-btn-wrapper">
+    <div class="promo-eyebrow">OFFRE EXCLUSIVE DU JOUR · LIMITÉE</div>
+    <button class="btn-promo-round" id="promoBtn" onclick="triggerPromo()">
+      <div class="promo-ring r1"></div>
+      <div class="promo-ring r2"></div>
+      <div class="promo-btn-text">OFFRE<br>EXCLUSIVE<br>DU JOUR</div>
+    </button>
+    <div class="promo-countdown-label">Réinitialisation dans : <span id="promoCountdown">24:00:00</span></div>
+    <p style="font-size:13px;color:var(--text-muted);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px">1 seule utilisation par jour · Non cumulable</p>
+  </div>
+</section>
+
+<!-- STARS COLLECTION — LUXE -->
+<section class="stars-section" id="stars">
+  <div class="section-header reveal">
+    <div class="section-tag" style="border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.08)">
+      <svg width="10" height="10" viewBox="0 0 10 10"><polygon points="5,0 6.1,3.4 9.8,3.4 6.9,5.5 7.9,9 5,6.9 2.1,9 3.1,5.5 0.2,3.4 3.9,3.4" fill="#C9A84C"/></svg>
+      COLLECTOR EXCLUSIF
+    </div>
+    <h2 style="color:var(--gold)">Collection Héritage<br>Éditions Signées</h2>
+  </div>
+  <div class="stars-section-intro">
+    <p class="stars-intro-text">
+      Certains joueurs écrivent l'histoire.<br>
+      D'autres <em>la terminent ici.</em>
+    </p>
+  </div>
+  <div class="stars-rule">
+    <strong>Accès Collection Héritage :</strong> À partir de 5 maillots achetés, vous pouvez prétendre à un maillot signé.<br>
+    <strong>Choisissez la star souhaitée</strong> selon disponibilité au moment de la commande.
+  </div>
+  <div class="stars-grid" id="starsGrid"></div>
+  <div class="players-showcase" id="playersShowcase"></div>
+</section>
+
+<!-- TICKETS -->
+<section class="tickets-section" id="tickets">
+  <div class="tickets-inner">
+    <div class="tickets-left reveal">
+      <img id="ticketsLogoImg" src="" alt="FIFA 2026" class="tickets-logo">
+      <div class="ticket-visual">VIP · TRIBUNE · FINAL</div>
+    </div>
+    <div class="tickets-right reveal">
+      <div class="section-tag">EXPÉRIENCE COMPLÈTE</div>
+      <h2>Vivez la Coupe du Monde en vrai.</h2>
+      <p class="tagline">Le plus grand spectacle du monde mérite d'être vécu sur place. Chaque match, une émotion que les écrans ne pourront jamais retranscrire.</p>
+      <div class="tickets-blocks">
+        <div class="ticket-block">
+          <span class="ticket-block-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </span>
+          <div class="ticket-block-title">Calendrier officiel</div>
+          <div class="ticket-block-text">Juin–Juillet 2026 · USA, Canada, Mexique</div>
+        </div>
+        <div class="ticket-block">
+          <span class="ticket-block-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          </span>
+          <div class="ticket-block-title">16 stades officiels</div>
+          <div class="ticket-block-text">MetLife, Rose Bowl, AT&T Stadium...</div>
+        </div>
+        <div class="ticket-block">
+          <span class="ticket-block-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </span>
+          <div class="ticket-block-title">Guide d'achat officiel</div>
+          <div class="ticket-block-text">Conseils exclusifs · Évitez les arnaques</div>
+        </div>
+        <div class="ticket-block">
+          <span class="ticket-block-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          </span>
+          <div class="ticket-block-title">Alertes disponibilité</div>
+          <div class="ticket-block-text">Soyez notifié lors des réouvertures</div>
+        </div>
+      </div>
+      <a href="https://www.fifa.com/fr/tournaments/mens/worldcup/2026worldcup/tickets" target="_blank" class="btn-tickets">
+        Billets officiels FIFA
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section class="delivery-section">
+  <div class="delivery-track">
+    <div class="delivery-icon">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><rect x="2" y="7" width="14" height="12" rx="2"/><circle cx="5" cy="19" r="2"/><circle cx="13" cy="19" r="2"/></svg>
+    </div>
+    <div class="delivery-path">
+      <div class="delivery-truck">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+    </div>
+    <div class="delivery-icon">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </div>
+  </div>
+  <div class="delivery-content">
+    <h2>LIVRAISON EXPRESS 7 JOURS</h2>
+    <p>Commandez maintenant pour recevoir votre maillot <strong>avant le coup d'envoi du tournoi.</strong> Suivi colis inclus dès l'expédition.</p>
+    <div class="delivery-countries">
+      <span>🇫🇷 France</span><span>🇧🇪 Belgique</span><span>🇨🇭 Suisse</span>
+      <span>🇨🇦 Canada</span><span>🇲🇦 Maroc</span><span>🇩🇿 Algérie</span>
+      <span>🇸🇳 Sénégal</span><span>+ 80 pays</span>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="avis">
+  <div class="section-header reveal">
+    <div class="section-tag">AVIS VÉRIFIÉS</div>
+    <h2>+1 000 CLIENTS SATISFAITS</h2>
+    <div class="reviews-overall">
+      <div class="stars-big">★★★★★</div>
+      <span class="rating-num">4.9</span>
+      <span class="rating-count">/ 5</span>
+      <span class="rating-google-badge">GOOGLE REVIEWS</span>
+    </div>
+  </div>
+  <div class="reviews-track-wrapper">
+    <div class="reviews-track" id="reviewsTrack"></div>
+  </div>
+</section>
+
+<!-- BADGE -->
+<section class="badge-section">
+  <div class="badge-inner">
+    <div class="badge-seal reveal">
+      <div class="badge-outer">
+        <div class="badge-mid">
+          <div class="badge-content">
+            <span class="badge-star-icon">★</span>
+            <div class="badge-title-text">TOP VENDEUR</div>
+            <div class="badge-sub-text">SUPPORTERS</div>
+            <div class="badge-year-text">2026</div>
+            <div class="badge-org">FIFA APPROVED</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="badge-text reveal">
+      <h3>QUALITÉ CERTIFIÉE</h3>
+      <p>Chaque maillot respecte les standards officiels FIFA. Tissus techniques DryFit, broderies authentiques des fédérations nationales, coutures renforcées pour une durabilité maximale.</p>
+      <div class="badge-feats">
+        <div class="badge-feat">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Tissu DryFit
+        </div>
+        <div class="badge-feat">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Broderie officielle
+        </div>
+        <div class="badge-feat">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Coupe authentique
+        </div>
+        <div class="badge-feat">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Lavable 40°C
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section class="guarantees-section" id="garanties">
+  <div class="section-header reveal">
+    <div class="section-tag">ENGAGEMENT QUALITÉ</div>
+    <h2>NOS GARANTIES</h2>
+  </div>
+  <div class="guarantees-grid">
+    <div class="guarantee-card reveal">
+      <div class="g-icon">
+        <svg viewBox="0 0 44 44" fill="none" stroke="var(--gold)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="19" stroke-opacity="0.3"/><path d="M14 22l5.5 5.5L30 17"/></svg>
+      </div>
+      <h4>Satisfait ou Remboursé</h4>
+      <p>30 jours pour changer d'avis. Remboursement intégral sans condition.</p>
+    </div>
+    <div class="guarantee-card reveal">
+      <div class="g-icon">
+        <svg viewBox="0 0 44 44" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="22" cy="22" r="19" stroke-opacity="0.3"/><polyline points="10 18 10 26 18 26"/><path d="M10.55 18a12 12 0 1 1-.5 4"/></svg>
+      </div>
+      <h4>Retours Gratuits</h4>
+      <p>Le retour est entièrement à notre charge. Aucun frais pour vous.</p>
+    </div>
+    <div class="guarantee-card reveal">
+      <div class="g-icon">
+        <svg viewBox="0 0 44 44" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="22" cy="22" r="19" stroke-opacity="0.3"/><path d="M17 22l3 3 7-7"/><rect x="12" y="12" width="20" height="20" rx="3"/></svg>
+      </div>
+      <h4>Échanges Express</h4>
+      <p>Mauvaise taille ? Échange traité sous 48h ouvrées.</p>
+    </div>
+    <div class="guarantee-card reveal">
+      <div class="g-icon">
+        <svg viewBox="0 0 44 44" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="22" cy="22" r="19" stroke-opacity="0.3"/><rect x="12" y="17" width="20" height="15" rx="2"/><path d="M16 17v-3a6 6 0 0 1 12 0v3"/></svg>
+      </div>
+      <h4>Paiement Sécurisé</h4>
+      <p>SSL 256 bits · PayPal · Visa · Mastercard · Apple Pay</p>
+    </div>
+    <div class="guarantee-card reveal">
+      <div class="g-icon">
+        <svg viewBox="0 0 44 44" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="22" cy="22" r="19" stroke-opacity="0.3"/><circle cx="22" cy="22" r="6"/><line x1="22" y1="3" x2="22" y2="8"/><line x1="22" y1="36" x2="22" y2="41"/><line x1="3" y1="22" x2="8" y2="22"/><line x1="36" y1="22" x2="41" y2="22"/></svg>
+      </div>
+      <h4>Suivi en Temps Réel</h4>
+      <p>Numéro de suivi envoyé par e-mail dès l'expédition de votre colis.</p>
+    </div>
+    <div class="guarantee-card reveal">
+      <div class="g-icon">
+        <svg viewBox="0 0 44 44" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="22" cy="22" r="19" stroke-opacity="0.3"/><path d="M22 12v10l6 3"/><path d="M22 7a15 15 0 1 0 15 15"/></svg>
+      </div>
+      <h4>Support 7J/7</h4>
+      <p>Notre équipe dédiée répond dans les 2 heures maximum.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img id="footerLogoImg" src="" alt="FIFA 2026">
+      <span>WORLD KIT 2026</span>
+    </div>
+    <p class="footer-tagline">Le monde entier se prépare. Représentez votre nation.</p>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">Conditions générales</a>
+      <a href="#">Confidentialité</a>
+      <a href="#">Contact</a>
+      <a href="#">Livraison & retours</a>
+    </div>
+    <div class="footer-copy">© 2026 World Kit — Site non officiel FIFA. Tous droits réservés.</div>
+  </div>
+</footer>
+
+<div id="confetti-container"></div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
