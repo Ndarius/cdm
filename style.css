@@ -776,8 +776,30 @@ body {
 .product-info { padding: 18px; }
 .product-country { font-family: 'Bebas Neue', sans-serif; font-size: 19px; letter-spacing: 1.5px; }
 .product-type { font-size: 11px; color: var(--gold); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; font-family: 'Barlow Condensed', sans-serif; }
-.product-stars { color: var(--gold); font-size: 12px; margin-bottom: 8px; }
-.product-price-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+
+/* Layout optimisé pour les cartes produits */
+.product-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.product-left-info {
+  flex: 1;
+  min-width: 0;
+}
+.product-right-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.product-stars { color: var(--gold); font-size: 12px; margin-bottom: 0; }
+.product-reviews-count { font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
+.product-price-row { display: flex; align-items: center; gap: 10px; margin-bottom: 0; }
 .product-old-price { font-size: 14px; color: var(--text-muted); text-decoration: line-through; }
 .product-new-price { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--gold); line-height: 1; }
 .product-delivery { font-size: 11px; color: var(--text-muted); margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
@@ -1436,6 +1458,43 @@ body {
   
   .products-grid {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  
+  /* Ajustements supplémentaires pour mobile */
+  .product-info {
+    padding: 14px;
+  }
+  
+  .product-country {
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+  
+  .product-type {
+    font-size: 10px;
+    margin-bottom: 0;
+  }
+  
+  .product-stars {
+    font-size: 11px;
+  }
+  
+  .product-old-price {
+    font-size: 12px;
+  }
+  
+  .product-new-price {
+    font-size: 20px;
+  }
+  
+  .product-delivery {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .btn-add-cart {
+    padding: 10px;
+    font-size: 12px;
   }
   
   /* STARS */

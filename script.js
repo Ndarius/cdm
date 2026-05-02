@@ -274,13 +274,20 @@ function renderProductsGrid() {
       <div class="product-badge-stock">Seulement ${c.stock} restants</div>
       <div class="product-img-wrap"><img src="${imgMaillot(c.file)}" alt="${c.name}" loading="lazy"></div>
       <div class="product-info">
-        <div class="product-country">${c.flag} ${c.name}</div>
-        <div class="product-type">Maillot domicile · 2026</div>
-        <div class="product-stars">★★★★★ <span style="font-size:11px;color:var(--text-muted)">(${Math.floor(Math.random()*80)+120} avis)</span></div>
-        <div class="product-price-row">
-          <span class="product-old-price">${fp(c.price)}</span>
-          <span class="product-new-price">${fp(promo)}</span>
+        <div class="product-top-row">
+          <div class="product-left-info">
+            <div class="product-country">${c.flag} ${c.name}</div>
+            <div class="product-type">Maillot domicile · 2026</div>
+          </div>
+          <div class="product-right-info">
+            <div class="product-stars">★★★★★</div>
+            <div class="product-price-row">
+              <span class="product-old-price">${fp(c.price)}</span>
+              <span class="product-new-price">${fp(promo)}</span>
+            </div>
+          </div>
         </div>
+        <div class="product-reviews-count" style="font-size:10px;color:var(--text-muted);margin-bottom:8px">(${Math.floor(Math.random()*80)+120} avis)</div>
         <div class="product-delivery">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           <span>Livraison express 7 jours</span>
