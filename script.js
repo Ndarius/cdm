@@ -632,6 +632,36 @@ function toggleCart() {
   document.body.style.overflow = open ? 'hidden' : '';
 }
 
+// Menu hamburger toggle
+function toggleMenu() {
+  const navLinks = document.getElementById('navLinks');
+  const navToggle = document.getElementById('navToggle');
+  navLinks.classList.toggle('open');
+  navToggle.classList.toggle('active');
+}
+
+// Fermer le menu mobile
+function closeMenu() {
+  const navLinks = document.getElementById('navLinks');
+  const navToggle = document.getElementById('navToggle');
+  navLinks.classList.remove('open');
+  navToggle.classList.remove('active');
+}
+
+// Fermer le menu si on clique en dehors
+document.addEventListener('click', function(e) {
+  const navLinks = document.getElementById('navLinks');
+  const navToggle = document.getElementById('navToggle');
+  const navbar = document.querySelector('.navbar');
+  
+  if (navLinks && navLinks.classList.contains('open')) {
+    if (!navbar.contains(e.target)) {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('active');
+    }
+  }
+});
+
 function openCartBriefly() {
   document.getElementById('cart-sidebar').classList.add('open');
   document.getElementById('cart-overlay').classList.add('visible');

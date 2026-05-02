@@ -13,7 +13,7 @@
 <!-- PRELOADER -->
 <div id="preloader">
   <div class="preloader-inner">
-    <img id="preloadLogoImg" src="" alt="FIFA 2026" class="preload-logo">
+    <img id="preloadLogoImg" src="./images/cdmlogo.jpeg" alt="FIFA 2026" class="preload-logo">
     <div class="preload-bar"><div class="preload-fill"></div></div>
     <div class="preload-text">CHARGEMENT EN COURS</div>
   </div>
@@ -61,18 +61,25 @@
       <img id="navLogoImg" src="" alt="FIFA 2026">
       <span>WORLD KIT 2026</span>
     </div>
-    <div class="nav-links">
-      <a href="#pays">Nations</a>
-      <a href="#produits">Collection</a>
-      <a href="#stars">Collector</a>
-      <a href="#heatmap">Live Map</a>
-      <a href="#avis">Avis</a>
+    
+    <div class="nav-links" id="navLinks">
+      <a href="#pays" onclick="closeMenu()">Nations</a>
+      <a href="#produits" onclick="closeMenu()">Collection</a>
+      <a href="#stars" onclick="closeMenu()">Collector</a>
+      <a href="#heatmap" onclick="closeMenu()">Live Map</a>
+      <a href="#avis" onclick="closeMenu()">Avis</a>
     </div>
     <div class="nav-actions">
       <div class="nav-promo-tag">−30% OFFRE</div>
       <button class="cart-btn" onclick="toggleCart()">
         <svg class="cart-icon-svg" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
         Panier&nbsp;<span id="cart-count">0</span>
+      </button>
+      <!-- Menu Hamburger (mobile only) -->
+      <button class="nav-toggle" id="navToggle" onclick="toggleMenu()" aria-label="Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
       </button>
     </div>
   </div>
